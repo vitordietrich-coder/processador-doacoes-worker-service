@@ -1,0 +1,6 @@
+@Processador.Doacoes.Worker.Service.Api_HostAddress = http://localhost:5073
+
+GET {{Processador.Doacoes.Worker.Service.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
