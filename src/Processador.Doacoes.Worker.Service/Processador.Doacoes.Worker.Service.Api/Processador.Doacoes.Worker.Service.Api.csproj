@@ -8,6 +8,23 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Persistence\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Campanhas.Service.Microservice.Domain">
+      <HintPath>..\..\..\..\campanhas-service\src\Campanhas.Service.Microservice\Campanhas.Service.Microservice.Domain\bin\Debug\net9.0\Campanhas.Service.Microservice.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Campanhas.Service.Microservice.Infra">
+      <HintPath>..\..\..\..\campanhas-service\src\Campanhas.Service.Microservice\Campanhas.Service.Microservice.Infra\obj\Debug\net9.0\Campanhas.Service.Microservice.Infra.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

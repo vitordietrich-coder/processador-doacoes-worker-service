@@ -1,23 +1,17 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Processador.Doacoes.WorkerService.Workers;
+using Campanhas.Microservice.Infrastructure.Persistence;
 
-// Add services to the container.
+var builder = Host.CreateApplicationBuilder(args);
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+builder.Services.AddDbContext<CampaignDbContext>(options =>
 {
-    app.MapOpenApi();
-}
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
-app.UseHttpsRedirection();
+builder.Services.AddHostedService<DonationConsumerWorker>();
 
-app.UseAuthorization();
+var host = builder.Build();
 
-app.MapControllers();
-
-app.Run();
+host.Run();
