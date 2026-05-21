@@ -20,7 +20,7 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: 🔧 Restaurar e compilar solução
-      run: dotnet build src/Campanhas.Service.Microservice/Campanhas.Service.Microservice.sln --configuration Release
+      run: dotnet build src/Processador.Doacoes.Worker.Service/Processador.Doacoes.Worker.Service.sln --configuration Release
       
   test:
     name: ✅ Testes Unitários
