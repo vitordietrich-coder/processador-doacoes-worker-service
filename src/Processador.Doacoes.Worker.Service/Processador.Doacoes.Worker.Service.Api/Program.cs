@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Processador.Doacoes.Worker.Service.Api.Data;
 using Processador.Doacoes.WorkerService.Workers;
-using Campanhas.Microservice.Infrastructure.Persistence;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Services.AddDbContext<CampaignDbContext>(options =>
+builder.Services.AddDbContext<WorkerDbContext>(options =>
 {
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"));

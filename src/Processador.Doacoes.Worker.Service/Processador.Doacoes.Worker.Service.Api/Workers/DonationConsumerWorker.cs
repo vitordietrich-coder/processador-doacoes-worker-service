@@ -1,7 +1,5 @@
-﻿using Campanhas.Microservice.Infrastructure.Persistence;
-using Campanhas.Service.Microservice.Infra.Persistence;
-using Microsoft.AspNetCore.Connections;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Processador.Doacoes.Worker.Service.Api.Data;
 using Processador.Doacoes.WorkerService.Events;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -75,7 +73,7 @@ public class DonationConsumerWorker : BackgroundService
                 using var scope = _scopeFactory.CreateScope();
 
                 var context = scope.ServiceProvider
-                    .GetRequiredService<CampaignDbContext>();
+                    .GetRequiredService<WorkerDbContext>();
 
                 var campaign = await context.Campanhas
                     .FirstOrDefaultAsync(
