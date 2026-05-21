@@ -63,4 +63,4 @@ jobs:
           context: ./src/Processador.Doacoes.Worker.Service
           file: ./src/Processador.Doacoes.Worker.Service/Dockerfile
           push: true
-          tags:  DOCKER_USERNAME/processador-doacoes:latest
+          tags:  vitordietrich/processador-doacoes:latest
